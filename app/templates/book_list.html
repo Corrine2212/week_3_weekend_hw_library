@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form class="form-inline" action="/books" method="post">
+    <h1>Upcoming Books!</h1>
+
+    <form class="form-inline" action="/add-book" method="post">
       <label for="title">Title</label>
       <input type="text" name="title" id="title">
       <label for="author">Author</label>
@@ -15,23 +17,21 @@
       <label for="description">Description</label>
       <textarea name="description" rows="2" cols="30"></textarea>
       <input type="submit" value="Add book">
-    </form> 
+    </form>
+    
     <div class="book-container">
     {% for book in books %}
     <div class="book">
-      <img class="book-thumb" src="">
-      <h2><a href="{{ url_for('show_book', book_id=book.id) }}">{{ book.title }}</a></h2>
-      <h4>{{ book.author }}</h4>
+      <h2>{{ book.title }}</h2>
+      <h3>{{ book.author }}</h3>
       <h4>Release Date: {{ book.date.strftime("%b %d %Y") }}</h4>
-      <h4>Genre: {{ book.genre }}</h4>
+      <h5>Genre: {{ book.genre }}</h5>
 
           {% if book.checkedin %}
           <p><i>Checked In </i></p>
-            {% else: %}
-            <p><i>Checked Out </i></p>
           {% endif %}
 
-          <form class="form-inline-delete" action="/books/delete/{{ book.title }}" method="POST">
+          <form class="form-inline" action="/delete/{{ book.title }}" method="POST">
             <input type="submit" value="Delete">
           </form>
     </div>
