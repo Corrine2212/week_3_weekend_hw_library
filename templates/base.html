@@ -1,13 +1,25 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-        <title>{{ title }} - All Libary Books</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <title>{{ title }} - Upcoming Books</title>
     </head>
 
-    <body>
-        <ul>
+      <body>
+        <header>
+          <h1>CodeClan Library</h1>
+          <p><a href="/books">Home</a></p>
+        </header>
+
+
+          <ul>
             <li class="navLink"><a href="/books">Home</a></li>
-        </ul>
-        <hr>{% block content %} {% endblock %}
-    </body>
+          </ul>
+          <hr>
+          {% block content %}{% endblock %}
+      </body>
+
+    <footer>
+      <p>Twitter</p>
+      <p>CodeClanLibrary Ltd.</p>
+    </footer>
 </html>
