@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <title>{{ title }} - All Libary Books</title>
+    </head>
+
+    <body>
+        <ul>
+            <li class="navLink"><a href="/books">Home</a></li>
+        </ul>
+        <hr>{% block content %} {% endblock %}
+    </body>
+</html>
